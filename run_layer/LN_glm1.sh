@@ -51,4 +51,5 @@ cd eachrun/prepro/GLM1
 3dbucket -prefix Tstat_VASO.nii stats_VASO.all+orig.BRIK'[11]' -overwrite
 3dbucket -prefix Fstat_VASO.nii stats_VASO.all+orig.BRIK'[12]' -overwrite
 
-
+# to get help in draw ROI
+LN_upsample.sh Beta_BOLD.nii

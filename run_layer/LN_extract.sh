@@ -22,6 +22,7 @@ rm combined.nii
 3dTstat -mean -prefix mean_notnulled.nii BOLD.nii -overwrite
 
 LN_MP2RAGE_DNOISE -INV1 mean_nulled.nii -INV2 mean_notnulled.nii -UNI T1_weighted.nii -beta 5
+LN_upsample.sh dnoised_T1_weighted.nii
 
 
 run=(0 1 2 3 4 5 6 7 8)

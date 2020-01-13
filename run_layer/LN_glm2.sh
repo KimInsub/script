@@ -3,7 +3,7 @@ mkdir eachrun/prepro/GLM2
 cd eachrun/prepro/GLM2
 
 subj=$1
-imgList=(12 16 22 24)
+imgList=(12 16 24 25)
 MasterDir=/Users/insubkim/Documents/experiment/mooney/behavior/$subj
 conds=(BOLD VASO)
 
