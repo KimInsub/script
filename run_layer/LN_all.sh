@@ -5,8 +5,9 @@
 ## convert first
 ## create moma 
 
-echo "start Analysis for ========>" $1
 
+# input is subject ID
+echo "start Analysis for ========>" $1
 
 echo "======== [start motion correction] ========"
 #sh /Users/insubkim/Documents/experiment/script/run_layer/LN_moco.sh
@@ -25,3 +26,5 @@ echo "=> p sig change converstion done"
 echo "======== [start GLM] ========"
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_glm1.sh $1
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_glm2.sh $1
+
+
