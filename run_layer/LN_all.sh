@@ -9,6 +9,10 @@
 # 2) run LN_convert.sh before this code to convert DICOM to NII
 # 3) create moma.nii (motion correction mask, restricts motion correction only to this mask)
 # 4) requires GLM stimulus timing files to perform the GLM 
+# 5) chagne image number subl /Users/insubkim/Documents/experiment/script/run_layer/LN_glm2.sh
+
+rootDir='/Users/insubkim/Documents/experiment/script/run_layer/'
+
 
 echo "starting analysis for ========>" $1
 
@@ -16,7 +20,6 @@ echo "starting analysis for ========>" $1
 echo "======== [start motion correction] ========"
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_moco.sh
 echo "=> motion correction done"
-
 
 # seperate BOLD and VASO responses
 echo "======== [start extraction] ========"
@@ -31,9 +34,14 @@ echo "=> p sig change converstion done"
 echo "======== [make file name changes] ========"
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_tidyName.sh
 
-
 # perform GLM analysis
 echo "======== [start GLM] ========"
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_glm1.sh $1
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_glm2.sh $1
 
+# peform Layering cut ROI into Layers
+echo "======== [Grow Layer] ========"
+sh /Users/insubkim/Documents/experiment/script/run_layer/LN_layering.sh
+
+# peform Layering cut ROI into Layers
+echo "======== [Grow Layer] ========"
