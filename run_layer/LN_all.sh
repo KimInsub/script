@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# Insub Kim January 12, 2020
+# Insub Kim January 19, 2020
 # Performs almost all signal processing for the mooney data
 # Most of the codes are from https://github.com/layerfMRI with minor changes made from me.
+# Needs LAYNII https://github.com/layerfMRI/LAYNII
 
 # *** note ***
-# 1) $1 input is subject ID 
+# 1) $1 input is subject Name
 # 2) run LN_convert.sh before this code to convert DICOM to NII
 # 3) create moma.nii (motion correction mask, restricts motion correction only to this mask)
 # 4) requires GLM stimulus timing files to perform the GLM 
@@ -39,9 +40,18 @@ echo "======== [start GLM] ========"
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_glm1.sh $1
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_glm2.sh $1
 
+
+# Draw mask
+
+
 # peform Layering cut ROI into Layers
 echo "======== [Grow Layer] ========"
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_layering.sh
 
-# peform Layering cut ROI into Layers
-echo "======== [Grow Layer] ========"
+# extract layer signals
+echo "======== [layer signals] ========"
+sh LN_roi_signal.sh
+sh LN_roi_corr.sh
+
+
+

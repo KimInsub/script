@@ -75,7 +75,6 @@ do
     -bucket stats_${cond}.M2.all        \
     -overwrite  
 
-
 3dbucket -prefix Beta_M2_I1_${cond}.nii stats_${cond}.M2.all+orig.BRIK'[1]' -overwrite
 3dbucket -prefix Beta_M2_I2_${cond}.nii stats_${cond}.M2.all+orig.BRIK'[4]' -overwrite
 3dbucket -prefix Beta_M2_I3_${cond}.nii stats_${cond}.M2.all+orig.BRIK'[7]' -overwrite
@@ -89,3 +88,12 @@ do
 3dMean -prefix ${cond}.Moon_all.nii ${cond}.Moon_?.nii -overwrite
 
 done 
+
+LN_upsample.sh BOLD.Moon_all.nii
+LN_upsample.sh VASO.Moon_all.nii
+
+for filename in ./Beta_*.nii
+do
+    myname=$( echo $filename | cut -c 3-)
+    LN_upsample.sh $myname
+done
