@@ -35,14 +35,18 @@ echo "=> p sig change converstion done"
 echo "======== [make file name changes] ========"
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_tidyName.sh
 
+
+# create text stim files
+# Mooney_TextTimeMaker.m
+
+
 # perform GLM analysis
 echo "======== [start GLM] ========"
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_glm1.sh $1
 sh /Users/insubkim/Documents/experiment/script/run_layer/LN_glm2.sh $1
 
 
-# Draw mask
-
+# Draw mask (nogada)
 
 # peform Layering cut ROI into Layers
 echo "======== [Grow Layer] ========"
@@ -52,6 +56,16 @@ sh /Users/insubkim/Documents/experiment/script/run_layer/LN_layering.sh
 echo "======== [layer signals] ========"
 sh LN_roi_signal.sh
 sh LN_roi_corr.sh
+
+# tidy files
+# mooney_tidyfiles.m
+
+
+
+
+
+
+
 
 
 
