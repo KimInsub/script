@@ -57,8 +57,7 @@ echo "======== [layer signals] ========"
 sh LN_roi_signal.sh
 sh LN_roi_corr.sh
 
-# tidy files
-# mooney_tidyfiles.m
+
 
 
 
